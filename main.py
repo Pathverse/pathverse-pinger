@@ -167,6 +167,9 @@ def process_service(service_name, statuspage_client, cache, secrets):
         print(f"Error: {service_name} component ID not found in secrets (tried: {component_key}, {component_key.upper()})")
         return False
     
+    # Strip any whitespace from component ID
+    component_id = component_id.strip()
+    
     print(f"[{service_name}] Component ID: {component_id}")
     
     # Execute ping
